@@ -60,7 +60,7 @@ const App = () => {
     return `${day} ${date} ${month} ${year}`
   }
 
-  if (fetching != false) {
+  if (fetching !== false) {
     return (
       <div>Loading...</div>
     )
@@ -86,7 +86,7 @@ const App = () => {
           <div className='weather-box'>
             <div className='weather-main'>
               <div className='weather-main__cloud'>
-                {(weather.weather[0].description) != 'clear sky' ?
+                {(weather.weather[0].description) !== 'clear sky' ?
                   <AiFillCloud size={50} /> : <BsFillSunFill size={50} />}
                 <span>{weather.weather[0].description}</span>
               </div>
