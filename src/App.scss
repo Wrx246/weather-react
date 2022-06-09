@@ -9,12 +9,19 @@ body {
 }
 
 .app {
-  // background-image: url('./img/weather-img.jpg');
-  background: url('./img/gif.gif');
+  background-image: url('./img/weather-img.jpg');
   background-size: cover;
   background-position: bottom;
   background-color: cadetblue;
   height: 100vh;
+
+  @media screen and (max-width: 820px) {
+    background: url('./img/gif.gif');
+    background-size: cover;
+    background-position: bottom;
+    background-color: cadetblue;
+    height: 100vh;
+  }
 }
 
 .search-box {
@@ -29,6 +36,13 @@ body {
     font-weight: 500;
     padding-left: 10px;
   }
+
+  @media screen and (max-width: 1920px) and (min-width: 900px) {
+    .search-body {
+      width: 50%;
+    }
+  }
+
 }
 
 .app-wrapper {
@@ -48,6 +62,15 @@ body {
       font-size: 20px;
       font-weight: 400;
       font-style: italic;
+    }
+  }
+
+  @media screen and (max-width: 1920px) and (min-width: 900px) {
+    .location-box {
+
+      h3 {
+        color: rgb(134, 131, 131);
+      }
     }
   }
 }
@@ -96,6 +119,13 @@ body {
     line-height: 20px;
   }
 
+  @media screen and (max-width: 1920px) and (min-width: 900px) {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
 }
 
 .weather-week {
@@ -122,4 +152,9 @@ body {
       justify-content: center;
     }
   }
+
+  @media screen and (max-width: 1920px) and (min-width: 900px) {
+    width: 50vw;
+  }
+
 }

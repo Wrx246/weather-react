@@ -73,6 +73,7 @@ const App = () => {
     )
   }
 
+
   return (
     <div className='app'>
       <main>
@@ -95,7 +96,9 @@ const App = () => {
               <div className='weather-main__cloud'>
                 {/* {(weather.weather[0].description) !== 'clear sky' ?
                   <AiFillCloud size={50} /> : <BsFillSunFill size={50} />} */}
-                <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} alt='weather icon' />
+                <img 
+                src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} 
+                alt='weather icon' />
                 <span>{weather.weather[0].description}</span>
               </div>
               <div className='weather-main__wind'>
