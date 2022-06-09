@@ -69,7 +69,9 @@ const App = () => {
 
   if (fetching !== false) {
     return (
-      <div>Loading...</div>
+      <div className='app'>
+      <div className='loader'></div>
+      </div>
     )
   }
 
