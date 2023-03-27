@@ -1,45 +1,66 @@
 .weather-box {
-    margin-top: 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
     margin: 30px auto;
-    background-color: rgba(0, 0, 0, 0.247);
-    padding: 10px;
     color: #FFF;
-    font-weight: lighter;
     text-align: center;
     width: 90vw;
+
+    .weather-temp {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        h2 {
+            font-size: 100px;
+            font-weight: lighter;
+            text-shadow: 1px 1px 1px #000000;
+        }
+
+        .weather-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            button {
+                border: none;
+                background: transparent;
+                color: #FFF;
+                font-size: 20px;
+                color: gray;
+                text-shadow: 1px 1px 1px #000000;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &:disabled {
+                    cursor: default;
+                    color: #FFF;
+                }
+            }
+        }
+    }
 
     .weather-main {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
+        gap: 10px;
+        flex-wrap: wrap;
+        width: 50%;
+        margin-top: 20px;
 
-
-        .weather-main__wind {
+        .weather-description {
             display: flex;
             flex-direction: column;
-        }
-
-        .weather-main__cloud {
-            display: flex;
-            flex-direction: column;
-            max-width: 50px;
-            align-items: center;
-        }
-
-        .weather-main__temp {
-            font-size: 60px;
+            line-height: 20px;
         }
     }
 
-    .weather-description {
-        display: flex;
-        flex-direction: column;
-        margin-top: 10px;
-        line-height: 20px;
-    }
+    
 
     @media screen and (max-width: 1920px) and (min-width: 900px) {
         width: 50vw;

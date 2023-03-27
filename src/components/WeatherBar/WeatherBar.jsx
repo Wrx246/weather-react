@@ -1,34 +1,58 @@
-import React from "react";
-import { FiWind } from "react-icons/fi";
-import { imageLoader } from "../../helpers/imageLoader";
-import './WeatherBar.scss';
+import React, { useState } from "react";
+import "./WeatherBar.scss";
 
-const WeatherBar = ({weather}) => {
+const WeatherBar = ({ weather }) => {
+  const [degrees, setDegrees] = useState(Math.round(weather.main.temp));
+  const [switchDegrees, setSwitchDegrees] = useState(true);
+
+  const convertToCelsius = () => {
+    const d = (degrees - 32) / 1.8;
+    setDegrees(d);
+    setSwitchDegrees(!switchDegrees);
+  };
+
+  const convertToFahrenheit = () => {
+    const d = degrees * 1.8 + 32;
+    setDegrees(d);
+    setSwitchDegrees(!switchDegrees);
+  };
+
   return (
-    <div className="weather-box">
+    <section className="weather-box">
+      <div className="weather-temp">
+        <h2>{degrees}°</h2>
+        <div className="weather-buttons">
+          <button
+            type="button"
+            disabled={switchDegrees}
+            onClick={convertToCelsius}
+          >
+            C
+          </button>
+          <button
+            type="button"
+            disabled={!switchDegrees}
+            onClick={convertToFahrenheit}
+          >
+            F
+          </button>
+        </div>
+      </div>
       <div className="weather-main">
-        <div className="weather-main__cloud">
-          {/* {(weather.weather[0].description) !== 'clear sky' ?
-                  <AiFillCloud size={50} /> : <BsFillSunFill size={50} />} */}
-          <img src={imageLoader(weather.weather[0].icon)} alt="weather icon" />
-          <span>{weather.weather[0].description}</span>
+        <div className="weather-description">
+          <span>Feels like: {Math.round(weather.main.feels_like)}℃</span>
+          <span>
+            Max: {Math.round(weather.main.temp_max)}℃ Min:{" "}
+            {Math.round(weather.main.temp_min)}℃
+          </span>
         </div>
-        <div className="weather-main__wind">
-          <FiWind size={50} />
-          <span>{Math.round(weather.wind.speed)}km/s</span>
-        </div>
-        <span className="weather-main__temp">
-          {Math.round(weather.main.temp)}℃
-        </span>
+        <span>Wind: {Math.round(weather.wind.speed)}km/s</span>
+        <span>Humidity: {weather.main.humidity}</span>
+        <span>Pressure: {weather.main.pressure}</span>
+        <span>Sea level: {weather.main.sea_level}</span>
+        <span>Ground level : {weather.main.grnd_level}</span>
       </div>
-      <div className="weather-description">
-        <span>Feels like: {Math.round(weather.main.feels_like)}℃</span>
-        <span>
-          Max: {Math.round(weather.main.temp_max)}℃ Min:{" "}
-          {Math.round(weather.main.temp_min)}℃
-        </span>
-      </div>
-    </div>
+    </section>
   );
 };
 

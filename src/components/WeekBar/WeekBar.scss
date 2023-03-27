@@ -1,11 +1,9 @@
 .weather-week {
-    margin-top: 10px;
     display: flex;
     justify-content: space-between;
+    gap: 10px;
     flex-direction: row;
     margin: 30px auto;
-    background-color: rgba(0, 0, 0, 0.247);
-    padding: 10px;
     color: #FFF;
     font-weight: lighter;
     text-align: center;
@@ -14,13 +12,34 @@
     .weather-week__item {
         display: flex;
         flex-direction: column;
-        width: 50px;
+        align-items: start;
+        gap: 5px;
+        width: 150px;
         height: auto;
+        padding: 10px;
 
         .week-item__day {
             display: flex;
             justify-content: center;
         }
+
+        .week-item__degree {
+            font-size: 30px;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgba(65, 63, 63, 0.616);
+            transition: .3s ease-in-out;
+        }
+    }
+
+    .active {
+        background-color: rgba(0, 0, 0, 0.247);
+    }
+
+    .inactive {
+        background-color: transparent;
     }
 
     @media screen and (max-width: 1920px) and (min-width: 900px) {
