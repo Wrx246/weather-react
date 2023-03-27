@@ -7,6 +7,7 @@ import Input from './components/Input/Input';
 import WeekBar from './components/WeekBar/WeekBar';
 import WeatherBar from './components/WeatherBar/WeatherBar';
 import Location from './components/Location/Location';
+import Layout from './components/Layout/Layout';
 
 const App = () => {
 
@@ -17,7 +18,6 @@ const App = () => {
 
   // Current position
   const [latitude, longitude] = useLocation();
-
 
   useEffect(() => {
     getWeather(latitude, longitude, 'weather')
@@ -32,7 +32,6 @@ const App = () => {
       })
   }, [latitude, longitude])
 
-
   const fetchWeather = (e) => {
     if (e.key === 'Enter') {
       searchWeather(search)
@@ -43,33 +42,28 @@ const App = () => {
     }
   }
 
-
-
   if (fetching !== false) {
     return (
-      <div className='app'>
+      <Layout>
         <Loader />
-      </div>
+      </Layout>
     )
   }
 
-
   return (
-    <div className='app'>
-      <main>
-        <section className='search-box'>
+    <Layout>
+        <header className='search-box'>
           <Input
             search={search}
             setSearch={setSearch}
             fetchWeather={fetchWeather} />
-        </section>
-        <section className='app-wrapper'>
+        </header>
+        <main className='app-wrapper'>
           <Location weather={weather} />
           <WeatherBar weather={weather} />
           <WeekBar week={week} />
-        </section>
-      </main>
-    </div>
+        </main>
+    </Layout>
   );
 }
 

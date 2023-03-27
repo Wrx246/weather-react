@@ -1,0 +1,22 @@
+.layout {
+    background-size: cover;
+    background-position: bottom;
+    background-color: cadetblue;
+    height: 100vh;
+
+    @media screen and (max-width: 820px) {
+        background: url('../../img/gif.gif');
+        background-size: cover;
+        background-position: bottom;
+        background-color: cadetblue;
+        height: 100vh;
+    }
+}
+
+.day {
+    background-image: url('../../img/weather-day.jpg');
+}
+
+.night {
+    background-image: url('../../img/weather-night.jpg');
+}

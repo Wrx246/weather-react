@@ -1,25 +1,15 @@
 .location-box {
     text-align: center;
     color: white;
+    text-shadow: 1px 1px 1px #000000;
 
     h1 {
-        text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
         font-size: 40px;
-        font-weight: 500;
+        font-weight: 400;
     }
 
     h3 {
         font-size: 20px;
         font-weight: 400;
-        font-style: italic;
-    }
-}
-
-@media screen and (max-width: 1920px) and (min-width: 900px) {
-    .location-box {
-
-        h3 {
-            color: rgb(134, 131, 131);
-        }
     }
 }
