@@ -21,6 +21,15 @@ const App = () => {
   // Current position
   const [latitude, longitude] = useLocation();
 
+  const getForecast = (lat, lon) => {
+    getWeather(lat, lon, 'forecast')
+      .then(res => {
+        const filter = res.data.list.filter((f) => f.dt_txt.includes('15:00:00'))
+        setWeek(filter)
+        setWeekChart(res.data.list)
+      })
+  }
+
   useEffect(() => {
     if (latitude !== undefined && longitude !== undefined) {
       getWeather(latitude, longitude, 'weather')
@@ -28,12 +37,7 @@ const App = () => {
           setWeather(res.data)
           setFetching(false)
         })
-      getWeather(latitude, longitude, 'forecast')
-        .then(res => {
-          const filter = res.data.list.filter((f) => f.dt_txt.includes('15:00:00'))
-          setWeek(filter)
-          setWeekChart(res.data.list)
-        })
+      getForecast(latitude, longitude)
     }
   }, [latitude, longitude])
 
@@ -43,6 +47,7 @@ const App = () => {
         .then(res => {
           setSearch('')
           setWeather(res.data)
+          getForecast(res.data.coord.lat, res.data.coord.lon)
         })
     }
   }
@@ -69,7 +74,7 @@ const App = () => {
         <WeekBar week={week} />
       </main>
       <footer>
-        <Chart week={week} weekChart={weekChart} />
+        <Chart weekChart={weekChart} />
       </footer>
     </Layout>
   );
