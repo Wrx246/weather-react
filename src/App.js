@@ -22,17 +22,19 @@ const App = () => {
   const [latitude, longitude] = useLocation();
 
   useEffect(() => {
-    getWeather(latitude, longitude, 'weather')
-      .then(res => {
-        setWeather(res.data)
-        setFetching(false)
-      })
-    getWeather(latitude, longitude, 'forecast')
-      .then(res => {
-        const filter = res.data.list.filter((f) => f.dt_txt.includes('15:00:00'))
-        setWeek(filter)
-        setWeekChart(res.data.list)
-      })
+    if (latitude !== undefined && longitude !== undefined) {
+      getWeather(latitude, longitude, 'weather')
+        .then(res => {
+          setWeather(res.data)
+          setFetching(false)
+        })
+      getWeather(latitude, longitude, 'forecast')
+        .then(res => {
+          const filter = res.data.list.filter((f) => f.dt_txt.includes('15:00:00'))
+          setWeek(filter)
+          setWeekChart(res.data.list)
+        })
+    }
   }, [latitude, longitude])
 
   const fetchWeather = (e) => {
@@ -41,7 +43,7 @@ const App = () => {
         .then(res => {
           setSearch('')
           setWeather(res.data)
-        });
+        })
     }
   }
 
@@ -55,20 +57,20 @@ const App = () => {
 
   return (
     <Layout>
-        <header className='search-box'>
-          <Input
-            search={search}
-            setSearch={setSearch}
-            fetchWeather={fetchWeather} />
-        </header>
-        <main className='app-wrapper'>
-          <Location weather={weather} />
-          <WeatherBar weather={weather} />
-          <WeekBar week={week} />
-        </main>
-        <footer>
-          <Chart week={week} weekChart={weekChart} />
-        </footer>
+      <header className='search-box'>
+        <Input
+          search={search}
+          setSearch={setSearch}
+          fetchWeather={fetchWeather} />
+      </header>
+      <main className='app-wrapper'>
+        <Location weather={weather} />
+        <WeatherBar weather={weather} />
+        <WeekBar week={week} />
+      </main>
+      <footer>
+        <Chart week={week} weekChart={weekChart} />
+      </footer>
     </Layout>
   );
 }
