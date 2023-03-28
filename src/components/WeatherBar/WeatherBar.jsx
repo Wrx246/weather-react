@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./WeatherBar.scss";
 
 const WeatherBar = ({ weather }) => {
@@ -16,6 +16,10 @@ const WeatherBar = ({ weather }) => {
     setDegrees(Math.round(d));
     setSwitchDegrees(!switchDegrees);
   };
+
+  useEffect(() => {
+    setDegrees(Math.round(weather.main.temp))
+  }, [weather])
 
   return (
     <section className="weather-box">

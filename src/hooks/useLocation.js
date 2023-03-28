@@ -9,7 +9,6 @@ export const useLocation = () => {
     const lon = navigator.geolocation.getCurrentPosition((position) => {
         setLongitude(position.coords.longitude)
     })
-
     const [latitude, setLatitude] = useState(lat);
     const [longitude, setLongitude] = useState(lon);
 

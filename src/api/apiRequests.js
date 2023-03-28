@@ -7,6 +7,6 @@ export const getWeather = async (latitude, longitude, type) => {
 }
 
 export const searchWeather = async (search) => {
-    const response = API.get(`weather?q=${search}&units=metric&appid=${api_key}`)
+    const response = await API.get(`weather?q=${search}&units=metric&appid=${api_key}`)
     return response
 }
