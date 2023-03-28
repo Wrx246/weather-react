@@ -2,13 +2,6 @@
     background-size: cover;
     background-position: bottom;
     background-color: cadetblue;
-
-    @media screen and (max-width: 820px) {
-        background: url('../../img/gif.gif');
-        background-size: cover;
-        background-position: bottom;
-        background-color: cadetblue;
-    }
 }
 
 .day {
@@ -17,4 +10,17 @@
 
 .night {
     background-image: url('../../img/weather-night.jpg');
+}
+
+@media screen and (max-width: 750px) {
+    .layout {
+        background-size: cover;
+        background-position: bottom;
+        max-height: 600px;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        -webkit-box-shadow: 0px 6px 8px 0px rgba(34, 60, 80, 0.2);
+        -moz-box-shadow: 0px 6px 8px 0px rgba(34, 60, 80, 0.2);
+        box-shadow: 0px 6px 8px 0px rgba(34, 60, 80, 0.2);
+    }
 }
