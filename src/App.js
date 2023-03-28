@@ -8,12 +8,14 @@ import WeekBar from './components/WeekBar/WeekBar';
 import WeatherBar from './components/WeatherBar/WeatherBar';
 import Location from './components/Location/Location';
 import Layout from './components/Layout/Layout';
+import Chart from './components/Chart/Chart';
 
 const App = () => {
 
   const [search, setSearch] = useState('');
   const [weather, setWeather] = useState({});
   const [week, setWeek] = useState([]);
+  const [weekChart, setWeekChart] = useState([]);
   const [fetching, setFetching] = useState(true);
 
   // Current position
@@ -29,6 +31,7 @@ const App = () => {
       .then(res => {
         const filter = res.data.list.filter((f) => f.dt_txt.includes('15:00:00'))
         setWeek(filter)
+        setWeekChart(res.data.list)
       })
   }, [latitude, longitude])
 
@@ -63,6 +66,9 @@ const App = () => {
           <WeatherBar weather={weather} />
           <WeekBar week={week} />
         </main>
+        <footer>
+          <Chart week={week} weekChart={weekChart} />
+        </footer>
     </Layout>
   );
 }

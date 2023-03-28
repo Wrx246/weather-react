@@ -7,36 +7,39 @@ const WeatherBar = ({ weather }) => {
 
   const convertToCelsius = () => {
     const d = (degrees - 32) / 1.8;
-    setDegrees(d);
+    setDegrees(Math.round(d));
     setSwitchDegrees(!switchDegrees);
   };
 
   const convertToFahrenheit = () => {
     const d = degrees * 1.8 + 32;
-    setDegrees(d);
+    setDegrees(Math.round(d));
     setSwitchDegrees(!switchDegrees);
   };
 
   return (
     <section className="weather-box">
       <div className="weather-temp">
-        <h2>{degrees}°</h2>
-        <div className="weather-buttons">
-          <button
-            type="button"
-            disabled={switchDegrees}
-            onClick={convertToCelsius}
-          >
-            C
-          </button>
-          <button
-            type="button"
-            disabled={!switchDegrees}
-            onClick={convertToFahrenheit}
-          >
-            F
-          </button>
+        <div className="weather-temp__degree">
+          <h2>{degrees}°</h2>
+          <div className="weather-buttons">
+            <button
+              type="button"
+              disabled={switchDegrees}
+              onClick={convertToCelsius}
+            >
+              C
+            </button>
+            <button
+              type="button"
+              disabled={!switchDegrees}
+              onClick={convertToFahrenheit}
+            >
+              F
+            </button>
+          </div>
         </div>
+          <h3>{weather.weather[0].description}</h3>
       </div>
       <div className="weather-main">
         <div className="weather-description">
