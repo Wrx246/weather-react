@@ -79,4 +79,13 @@
         justify-content: space-between;
     }
 
+    @media screen and (max-width: 900px) {
+        .weather-temp {
+        h3 {
+            font-size: 31px;
+            font-weight: lighter;
+        }
+    }
+    }
+
 }
