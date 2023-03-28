@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { useLocation } from './hooks/useLocation';
 import { getWeather, searchWeather } from './api/apiRequests';
 import Loader from './components/Loader/Loader';
-import './App.scss';
 import Input from './components/Input/Input';
 import WeekBar from './components/WeekBar/WeekBar';
 import WeatherBar from './components/WeatherBar/WeatherBar';
 import Location from './components/Location/Location';
 import Layout from './components/Layout/Layout';
 import Chart from './components/Chart/Chart';
+import './App.scss';
 
 const App = () => {
 

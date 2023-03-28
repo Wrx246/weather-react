@@ -42,8 +42,26 @@
         background-color: transparent;
     }
 
-    @media screen and (max-width: 1920px) and (min-width: 900px) {
+}
+
+@media screen and (max-width: 1920px) and (min-width: 900px) {
+    .weather-week {
         width: 50vw;
     }
+}
 
+@media screen and (max-width: 800px) {
+    .weather-week {
+        overflow: hidden;
+        overflow-x: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .weather-week__item {
+            min-width: 130px;
+            margin-bottom: 10px;
+        }
+    }
 }
