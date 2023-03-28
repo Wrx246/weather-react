@@ -10,13 +10,24 @@
 
     .weather-temp {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        justify-content: center;
         gap: 10px;
+        
+        .weather-temp__degree {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            h2 {
+                font-size: 100px;
+                font-weight: lighter;
+            }
+            
+        }
 
-        h2 {
-            font-size: 100px;
+        h3 {
+            font-size: 35px;
             font-weight: lighter;
-            text-shadow: 1px 1px 1px #000000;
         }
 
         .weather-buttons {
@@ -30,7 +41,6 @@
                 color: #FFF;
                 font-size: 20px;
                 color: gray;
-                text-shadow: 1px 1px 1px #000000;
 
                 &:hover {
                     cursor: pointer;
